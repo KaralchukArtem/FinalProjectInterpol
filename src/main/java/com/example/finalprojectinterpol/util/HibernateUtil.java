@@ -15,7 +15,7 @@ public class HibernateUtil {
             // Create the SessionFactory from hibernate.cfg.xml
             Configuration configuration = new Configuration();
             configuration.addAnnotatedClass(NewsModel.class);
-            configuration.addAnnotatedClass(ReportageModel.class);
+            configuration.addAnnotatedClass(CategoryModel.class);
             configuration.addAnnotatedClass(RoleUserModel.class);
             configuration.addAnnotatedClass(StatementModel.class);
             configuration.addAnnotatedClass(TypeStatementModel.class);

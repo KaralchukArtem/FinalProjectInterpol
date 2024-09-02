@@ -7,13 +7,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "reportage")
-public class ReportageModel {
+@Table(name = "category")
+public class CategoryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "news_id")
-    private NewsModel newsModel;
+    @Column(name = "type")
+    private String type;
 }

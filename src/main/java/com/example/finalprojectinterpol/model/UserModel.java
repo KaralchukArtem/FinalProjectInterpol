@@ -15,6 +15,10 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    @Column(name = "login")
+    private String login;
+    @Column(name = "password")
+    private String password;
     @Column(name = "name")
     private String name;
     @Column(name = "surname")
@@ -24,7 +28,4 @@ public class UserModel {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private RoleUserModel roleUserModel;
-    @ManyToOne
-    @JoinColumn(name = "reportage_id")
-    private ReportageModel reportageModel;
 }

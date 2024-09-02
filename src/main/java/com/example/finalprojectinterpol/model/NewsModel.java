@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @Entity
@@ -21,4 +23,12 @@ public class NewsModel {
     private String text;
     @Column(name = "type")
     private String type;
+    @Column(name = "year")
+    private Date year;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserModel userModel;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryModel categoryModel;
 }
