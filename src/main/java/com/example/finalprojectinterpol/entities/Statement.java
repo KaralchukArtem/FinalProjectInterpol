@@ -1,16 +1,25 @@
-package com.example.finalprojectinterpol.model;
+package com.example.finalprojectinterpol.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "statement")
-public class StatementModel {
+public class Statement {
+    //TODO
+    /*
+    *     column can be null, applies to all entities
+    *   ( столбец может быть нулл, относиться ко всем сущностям )
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -43,8 +52,8 @@ public class StatementModel {
     private boolean approved;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserModel userModel;
+    private User user_id;
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private TypeStatementModel typeStatementModel;
+    private TypeStatement type_id;
 }

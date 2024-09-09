@@ -1,16 +1,21 @@
-package com.example.finalprojectinterpol.model;
+package com.example.finalprojectinterpol.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "user")
-public class UserModel {
+@Table(name = "\"user\"")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,5 +32,5 @@ public class UserModel {
     private Date date;
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private RoleUserModel roleUserModel;
+    private RoleUser role_id;
 }
