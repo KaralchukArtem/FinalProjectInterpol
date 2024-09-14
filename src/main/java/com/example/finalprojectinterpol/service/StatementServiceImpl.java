@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StatementServiceImpl implements StatementService {
     @Autowired
-    StatementRepository statementRepository;
+    private StatementRepository statementRepository;
 
     private final StatementMapper statementMapper;
 

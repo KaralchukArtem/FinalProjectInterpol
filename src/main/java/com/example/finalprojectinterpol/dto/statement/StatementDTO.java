@@ -6,8 +6,6 @@ import java.util.Date;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class StatementDTO {
     private int id;
     private String name;
