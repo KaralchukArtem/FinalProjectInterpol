@@ -17,9 +17,9 @@ import java.util.Date;
 public class Statement {
     //TODO
     /*
-    *     column can be null, applies to all entities
-    *   ( столбец может быть нулл, относиться ко всем сущностям )
-    */
+     *     column can be null, applies to all entities
+     *   ( столбец может быть нулл, относиться ко всем сущностям )
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

@@ -26,19 +26,24 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
+//        if (bindingResult.hasErrors()) {
+//            return "registration";
+//        }
+        //TODO date is always null?
 
-        if (bindingResult.hasErrors()) {
-            return "registration";
-        }
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())){
             model.addAttribute("passwordError", "Пароли не совпадают");
             return "registration";
         }
         if (!userService.saveUser(userForm)){
+            System.out.println(userForm.getDate());
             model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
             return "registration";
-        }
+        }else{
+            System.out.println(userForm.getDate());
+            userService.saveUser(userForm);
 
+        }
         return "redirect:/";
     }
 }

@@ -1,6 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,9 +14,9 @@
   <form:form method="POST" modelAttribute="userForm">
     <h2>Регистрация</h2>
     <div>
-      <form:input type="text" path="username" placeholder="Username"
+      <form:input type="text" path="login" placeholder="login"
                   autofocus="true"></form:input>
-      <form:errors path="username"></form:errors>
+      <form:errors path="login"></form:errors>
         ${usernameError}
     </div>
     <div>
@@ -27,6 +27,15 @@
                   placeholder="Confirm your password"></form:input>
       <form:errors path="password"></form:errors>
         ${passwordError}
+    </div>
+    <div>
+      <form:input type="text" path="name" placeholder="Name"></form:input>
+    </div>
+    <div>
+      <form:input type="text" path="surname" placeholder="Surname"></form:input>
+    </div>
+    <div>
+      <form:input type="date" path="date" placeholder="date"></form:input>
     </div>
     <button type="submit">Зарегистрироваться</button>
   </form:form>

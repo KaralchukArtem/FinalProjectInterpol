@@ -29,9 +29,9 @@ public class StatementServiceImpl implements StatementService {
 
     //TODO
     /*
-    *   Take from the User session when creating a statement and add it.
-    *   ( Брать из сессии Юзера, при создании заявления, добавлять его )
-    */
+     *   Take from the User session when creating a statement and add it.
+     *   ( Брать из сессии Юзера, при создании заявления, добавлять его )
+     */
     @Override
     public StatementDTO createStatement(StatementCreateDTO statementCreateDto) {
         Statement statement = statementMapper.toEntity(statementCreateDto);
