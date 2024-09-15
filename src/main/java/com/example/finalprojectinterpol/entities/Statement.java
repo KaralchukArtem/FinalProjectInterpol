@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -31,7 +31,7 @@ public class Statement {
     @Column(name = "gender")
     private String gender;
     @Column(name = "date_of_birth")
-    private Date date_of_birth;
+    private LocalDate date_of_birth;
     @Column(name = "place_of_birth")
     private String place_of_birth;
     @Column(name = "nationality")

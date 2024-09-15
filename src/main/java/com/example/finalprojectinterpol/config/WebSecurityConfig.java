@@ -25,7 +25,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/news/**").hasRole("USER")
-                        .requestMatchers("/", "/registration", "/login", "/logout", "/statement/all").permitAll()
+                        .requestMatchers("/", "/registration", "/login", "/logout", "/statement/**").permitAll()
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")

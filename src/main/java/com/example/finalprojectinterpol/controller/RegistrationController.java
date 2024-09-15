@@ -20,17 +20,15 @@ public class RegistrationController {
     @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
-
         return "registration";
     }
-
     @PostMapping("/registration")
     public String addUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            return "registration";
-//        }
+        if (bindingResult.hasErrors()) {
+            return "registration";
+        }
         //TODO date is always null?
-
+        System.out.println(userForm.getDate());
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())){
             model.addAttribute("passwordError", "Пароли не совпадают");
             return "registration";

@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -30,7 +30,7 @@ public class User {
     @Column(name = "name")
     private String name;
     @Column(name = "date_of_birth")
-    private Date date;
+    private LocalDate date;
     @ManyToOne
     @JoinColumn(name = "role_id")
     private RoleUser role_id;

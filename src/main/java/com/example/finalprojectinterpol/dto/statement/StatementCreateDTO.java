@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -17,7 +17,7 @@ public class StatementCreateDTO {
     private String name;
     private String surname;
     private String gender;
-    private Date date_of_birth;
+    private LocalDate date_of_birth;
     private String place_of_birth;
     private String nationality;
     private int height;
