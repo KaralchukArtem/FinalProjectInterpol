@@ -1,12 +1,10 @@
 package com.example.finalprojectinterpol.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -26,7 +24,7 @@ public class News {
     @Column(name = "type")
     private String type;
     @Column(name = "year")
-    private Date year;
+    private LocalDate year;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User userModel;

@@ -1,12 +1,10 @@
 package com.example.finalprojectinterpol.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -15,9 +13,9 @@ import java.util.Date;
 public class Statement {
     //TODO
     /*
-    *     column can be null, applies to all entities
-    *   ( столбец может быть нулл, относиться ко всем сущностям )
-    */
+     *     column can be null, applies to all entities
+     *   ( столбец может быть нулл, относиться ко всем сущностям )
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -29,7 +27,7 @@ public class Statement {
     @Column(name = "gender")
     private String gender;
     @Column(name = "date_of_birth")
-    private Date date_of_birth;
+    private LocalDate date_of_birth;
     @Column(name = "place_of_birth")
     private String place_of_birth;
     @Column(name = "nationality")

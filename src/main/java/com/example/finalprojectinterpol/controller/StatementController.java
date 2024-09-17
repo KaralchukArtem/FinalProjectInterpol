@@ -1,28 +1,31 @@
 package com.example.finalprojectinterpol.controller;
 
 import com.example.finalprojectinterpol.dto.statement.StatementCreateDTO;
-import com.example.finalprojectinterpol.dto.statement.StatementDTO;
 import com.example.finalprojectinterpol.service.StatementServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("/statement")
+@Controller
 public class StatementController {
-
     @Autowired
     private StatementServiceImpl service;
-
-    @GetMapping("/all")
-    public ResponseEntity<List<StatementDTO>> getStatementList() {
-        return ResponseEntity.ok(service.getAllStatement());
+    @GetMapping("/statement")
+    public String getSt(Model model) {
+        model.addAttribute("statementForm", new StatementCreateDTO());
+        return "statement";
     }
-
-    @PostMapping("/create")
-    public ResponseEntity<StatementDTO> createStatement(@RequestBody StatementCreateDTO statementCreateDto) {
-        return ResponseEntity.ok(service.createStatement(statementCreateDto));
+    @GetMapping("/all")
+    public String getStatementList(Model model) {
+        model.addAttribute("statements", service.getAllStatement());
+        return "statement";
+    }
+    @PostMapping("/statement")
+    public String createStatement(@ModelAttribute("statementForm") StatementCreateDTO statementCreateDto) {
+        service.createStatement(statementCreateDto);
+        return "index";
     }
 }

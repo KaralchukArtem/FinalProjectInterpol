@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class StatementServiceImpl implements StatementService {
     @Autowired
     private StatementRepository statementRepository;
 
-    private final StatementMapper statementMapper;
+    @Autowired
+    private StatementMapper statementMapper;
 
     @Override
     public List<StatementDTO> getAllStatement() {
@@ -29,9 +29,9 @@ public class StatementServiceImpl implements StatementService {
 
     //TODO
     /*
-    *   Take from the User session when creating a statement and add it.
-    *   ( Брать из сессии Юзера, при создании заявления, добавлять его )
-    */
+     *   Take from the User session when creating a statement and add it.
+     *   ( Брать из сессии Юзера, при создании заявления, добавлять его )
+     */
     @Override
     public StatementDTO createStatement(StatementCreateDTO statementCreateDto) {
         Statement statement = statementMapper.toEntity(statementCreateDto);

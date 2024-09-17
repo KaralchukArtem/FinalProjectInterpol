@@ -1,13 +1,10 @@
 package com.example.finalprojectinterpol.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -22,13 +19,19 @@ public class User {
     private String login;
     @Column(name = "password")
     private String password;
-    @Column(name = "name")
-    private String name;
+    @Transient
+    private String passwordConfirm;
     @Column(name = "surname")
     private String surname;
+    @Column(name = "name")
+    private String name;
     @Column(name = "date_of_birth")
-    private Date date;
+    private LocalDate date;
     @ManyToOne
     @JoinColumn(name = "role_id")
     private RoleUser role_id;
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
 }
