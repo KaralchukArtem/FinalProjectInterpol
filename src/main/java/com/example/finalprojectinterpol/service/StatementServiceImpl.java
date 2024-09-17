@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class StatementServiceImpl implements StatementService {
     @Autowired
     private StatementRepository statementRepository;
 
-    private final StatementMapper statementMapper;
+    @Autowired
+    private StatementMapper statementMapper;
 
     @Override
     public List<StatementDTO> getAllStatement() {
