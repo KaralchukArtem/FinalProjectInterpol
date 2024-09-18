@@ -11,6 +11,7 @@
 
 <body>
 <div>
+
     <form:form method="POST" modelAttribute="statementForm">
         <h2>Регистрация заявки</h2>
         <div>

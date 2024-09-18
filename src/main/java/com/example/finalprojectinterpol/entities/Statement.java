@@ -3,6 +3,7 @@ package com.example.finalprojectinterpol.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
@@ -11,11 +12,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "statement")
 public class Statement {
-    //TODO
-    /*
-     *     column can be null, applies to all entities
-     *   ( столбец может быть нулл, относиться ко всем сущностям )
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

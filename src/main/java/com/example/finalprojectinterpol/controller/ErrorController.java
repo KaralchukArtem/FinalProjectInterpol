@@ -2,16 +2,12 @@ package com.example.finalprojectinterpol.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class LoginController {
-    @GetMapping("/login")
-    public String pagForLog() {
-        return "login";
-    }
-
+public class ErrorController {
     @GetMapping("/error")
-    public String entrancePage() {
-        return "error";
+    public ModelAndView entrancePage() {
+        return new ModelAndView("error");
     }
 }
