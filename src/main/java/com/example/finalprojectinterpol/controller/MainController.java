@@ -22,7 +22,6 @@ public class MainController {
     public ModelAndView viewHomePage() {
         return new ModelAndView("index");
     }
-
     @GetMapping("/login")
     public ModelAndView viewLoginPage() {
         return new ModelAndView("login");

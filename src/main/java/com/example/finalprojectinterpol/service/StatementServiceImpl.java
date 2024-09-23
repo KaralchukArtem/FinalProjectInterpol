@@ -1,8 +1,10 @@
 package com.example.finalprojectinterpol.service;
 
 import com.example.finalprojectinterpol.dto.statement.StatementCreateDTO;
-import com.example.finalprojectinterpol.dto.statement.StatementDTO;
+import com.example.finalprojectinterpol.dto.statement.StatementUpdateDTO;
+import com.example.finalprojectinterpol.dto.statement.StatementViewDTO;
 import com.example.finalprojectinterpol.entities.Statement;
+import com.example.finalprojectinterpol.entities.TypeStatement;
 import com.example.finalprojectinterpol.mapper.StatementMapper;
 import com.example.finalprojectinterpol.repository.StatementRepository;
 import com.example.finalprojectinterpol.repository.StatementTypeRepository;
@@ -13,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StatementServiceImpl implements StatementService {
@@ -26,25 +27,39 @@ public class StatementServiceImpl implements StatementService {
     @Autowired
     private StatementMapper statementMapper;
 
-    @Override
-    public List<StatementDTO> getAllStatement() {
-        List<Statement> statementList = statementRepository.findAll();
-        List<StatementDTO> statementDtoList = statementMapper.toDTOList(statementList);
-        return statementDtoList;
+    public List<TypeStatement> getAllTypes() {
+        List<TypeStatement> typeStatements = typeRepository.findAll();
+        return typeStatements;
     }
 
     @Override
-    public StatementDTO createStatement(StatementCreateDTO statementCreateDto, Principal userLogin) {
+    public List<StatementViewDTO> getAllStatement() {
+        List<Statement> statementList = statementRepository.findAll();
+        List<StatementViewDTO> statementViewDtoList = statementMapper.toDTOList(statementList);
+        return statementViewDtoList;
+    }
+
+    @Override
+    public StatementViewDTO createStatement(StatementCreateDTO statementCreateDto, Principal userLogin) {
         Statement statement = statementMapper.toEntity(statementCreateDto);
         statement.setUser_id(userRepository.findByLogin(userLogin.getName()));
         statement.setType_id(typeRepository.findByName("missing"));
         Statement saveStatement = statementRepository.save(statement);
-        StatementDTO statementDto = statementMapper.toDTO(saveStatement);
-        return statementDto;
+        StatementViewDTO statementViewDto = statementMapper.toDTO(saveStatement);
+        return statementViewDto;
     }
 
     @Override
     public Statement getById(Integer id) {
         return statementRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Unexpected statement id!"));
     }
+
+    @Override
+    public StatementViewDTO updateStatement(StatementUpdateDTO statementUpdateDTO) {
+        Statement statement = statementMapper.toEntity(statementUpdateDTO);
+        Statement saveStatement = statementRepository.save(statement);
+        StatementViewDTO statementViewDto = statementMapper.toDTO(saveStatement);
+        return statementViewDto;
+    }
+    //TODO delete
 }

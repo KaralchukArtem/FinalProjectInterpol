@@ -18,11 +18,9 @@ public class News {
     @Column(name = "title")
     private String title;
     @Column(name = "img")
-    private String img;
+    private String imageData;
     @Column(name = "text")
     private String text;
-    @Column(name = "type")
-    private String type;
     @Column(name = "year")
     private LocalDate year;
     @ManyToOne

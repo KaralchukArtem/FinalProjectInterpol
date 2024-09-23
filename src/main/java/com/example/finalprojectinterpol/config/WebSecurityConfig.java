@@ -28,9 +28,10 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authenticationProvider(authenticationProvider())
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/admin/**","statement/create").hasRole("ADMIN")
-                        .requestMatchers("/user/**","/statement/create").hasRole("USER")
-                        .requestMatchers("/", "/registration", "/login", "/logout", "/statement/**","/news").permitAll()
+                        .requestMatchers("/statement/create").hasAnyRole("ADMIN","USER")
+                        .requestMatchers("/admin","/news/create","/statement/update","/statement/update/**").hasRole("ADMIN")
+                        .requestMatchers("/user/**").hasRole("USER")
+                        .requestMatchers("/","/registration", "/login", "/logout", "/statement/**", "/news/**").permitAll()
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
@@ -66,4 +67,5 @@ public class WebSecurityConfig {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 }

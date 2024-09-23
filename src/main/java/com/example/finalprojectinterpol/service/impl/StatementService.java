@@ -1,18 +1,19 @@
 package com.example.finalprojectinterpol.service.impl;
 
 import com.example.finalprojectinterpol.dto.statement.StatementCreateDTO;
-import com.example.finalprojectinterpol.dto.statement.StatementDTO;
+import com.example.finalprojectinterpol.dto.statement.StatementViewDTO;
+import com.example.finalprojectinterpol.dto.statement.StatementUpdateDTO;
 import com.example.finalprojectinterpol.entities.Statement;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 public interface StatementService {
-    List<StatementDTO> getAllStatement();
+    List<StatementViewDTO> getAllStatement();
 
-    StatementDTO createStatement(StatementCreateDTO statement, Principal userLogin);
+    StatementViewDTO createStatement(StatementCreateDTO statement, Principal userLogin);
 
     Statement getById(Integer name);
 
+    StatementViewDTO updateStatement(StatementUpdateDTO statement);
 }

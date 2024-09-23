@@ -11,6 +11,7 @@
 
 <body>
 <div>
+  <%--@elvariable id="userForm" type="com.example.finalprojectinterpol.entities.User"--%>
   <form:form method="POST" modelAttribute="userForm">
     <h2>Регистрация</h2>
     <div>

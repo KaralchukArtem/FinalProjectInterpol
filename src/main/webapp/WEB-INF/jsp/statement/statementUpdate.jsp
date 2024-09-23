@@ -2,18 +2,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Создание заявки</title>
+    <title>Обновление заявки</title>
 </head>
-
 <body>
 <div>
-
-    <form:form method="post" modelAttribute="statementForm">
-        <h2>Регистрация заявки</h2>
+    <form:form method="post" action="/statement/update" modelAttribute="statementFormUpdate">
+        <h2>Обновление заявки</h2>
+        <div>
+            <form:input type="text" path="id" placeholder="id"></form:input>
+        </div>
         <div>
             <form:input type="text" path="surname" placeholder="Surname"></form:input>
         </div>
@@ -50,7 +50,21 @@
         <div>
             <form:input type="text" path="physique" placeholder="Physique"></form:input>
         </div>
-        <button type="submit">Зарегистрироваться</button>
+        <div>
+            <form:input type="text" path="approved" placeholder="Approved"></form:input>
+        </div>
+        <div>
+            <form:select path="user_id" class="form-control">
+                <form:option value="" label="-- Select User --"/>
+                <form:options items="${users}" itemValue="id" itemLabel="login"/>
+            </form:select>
+            <form:select path="type_id" class="form-control">
+                <form:option value="" label="-- Select Type --"/>
+                <form:options items="${types}" itemValue="id" itemLabel="name"/>
+            </form:select>
+            <form:errors path="user_id" cssClass="text-danger"/>
+        </div>
+        <button type="submit">Обновить</button>
     </form:form>
     <a href="/">Главная</a>
 </div>

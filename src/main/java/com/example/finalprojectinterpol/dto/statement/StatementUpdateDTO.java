@@ -1,13 +1,17 @@
 package com.example.finalprojectinterpol.dto.statement;
 
+import com.example.finalprojectinterpol.entities.TypeStatement;
+import com.example.finalprojectinterpol.entities.User;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
-public class StatementDTO {
+@ToString
+public class StatementUpdateDTO {
     private int id;
     private String name;
     private String surname;
@@ -22,4 +26,6 @@ public class StatementDTO {
     private int reward;
     private String physique;
     private boolean approved;
+    private User user_id;
+    private TypeStatement type_id;
 }
