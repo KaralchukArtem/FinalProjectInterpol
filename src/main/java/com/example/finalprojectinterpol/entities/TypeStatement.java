@@ -1,4 +1,4 @@
-package com.example.finalprojectinterpol.model;
+package com.example.finalprojectinterpol.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,13 +7,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "reportage")
-public class ReportageModel {
+@Table(name = "type")
+public class TypeStatement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "news_id")
-    private NewsModel newsModel;
+    @Column(name = "name")
+    private String name;
 }

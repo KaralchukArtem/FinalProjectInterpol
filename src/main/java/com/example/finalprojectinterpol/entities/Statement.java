@@ -1,16 +1,18 @@
-package com.example.finalprojectinterpol.model;
+package com.example.finalprojectinterpol.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "statement")
-public class StatementModel {
+@ToString
+public class Statement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,7 +24,7 @@ public class StatementModel {
     @Column(name = "gender")
     private String gender;
     @Column(name = "date_of_birth")
-    private Date date_of_birth;
+    private LocalDate date_of_birth;
     @Column(name = "place_of_birth")
     private String place_of_birth;
     @Column(name = "nationality")
@@ -43,8 +45,8 @@ public class StatementModel {
     private boolean approved;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserModel userModel;
+    private User user_id;
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private TypeStatementModel typeStatementModel;
+    private TypeStatement type_id;
 }
